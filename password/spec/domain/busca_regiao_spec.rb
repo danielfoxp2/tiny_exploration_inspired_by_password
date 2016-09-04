@@ -9,40 +9,29 @@ describe BuscaRegiao do
   #Processa cep - dado um número contendo pontos
   #Processa um dado cep para busca
 
-
   context "com um número de CEP válido" do 
     around(:each) do |example|
       VCR.use_cassette("obtem_info_do_cep", &example)
-      let(:regiao)
-      regiao = BuscaRegiao.do_cep("09110170")
   end
 
     it "deve obter o País" do
-    #  VCR.use_cassette('obtem_info_do_cep') do
-        #regiao = BuscaRegiao.do_cep("09110170")
-        expect(regiao[:pais]).to eq("Brasil")
-    #  end
+      regiao = BuscaRegiao.do_cep("09110170")
+      expect(regiao.fetch(:pais)).to eq("Brasil")
     end
 
     it "deve obter o Estado" do 
-    #  VCR.use_cassette('obtem_info_do_cep') do
-        #regiao = BuscaRegiao.do_cep("09110170")
-        expect(regiao[:estado]).to eq("São Paulo")
-    #  end
+      regiao = BuscaRegiao.do_cep("09110170")
+      expect(regiao.fetch(:estado)).to eq("São Paulo")
     end
 
     it "deve obter a Cidade" do
-    #  VCR.use_cassette('obtem_info_do_cep') do
-        #regiao = BuscaRegiao.do_cep("09110170")
-        expect(regiao[:cidade]).to eq("Santo André")
-    #  end
+      regiao = BuscaRegiao.do_cep("09110170")
+      expect(regiao.fetch(:cidade)).to eq("Santo André")
     end
 
     it "deve obter o Bairro" do
-    #  VCR.use_cassette('obtem_info_do_cep') do
-        #regiao = BuscaRegiao.do_cep("09110170")
-        expect(regiao[:bairro]).to eq("Vila America")
-    #  end
+      regiao = BuscaRegiao.do_cep("09110170")
+      expect(regiao.fetch(:bairro)).to eq("Vila America")
     end
   end
 end
