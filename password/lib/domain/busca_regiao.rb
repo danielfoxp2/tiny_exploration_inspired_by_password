@@ -15,8 +15,8 @@ class BuscaRegiao
     @regiao
   end
 
-  def self.obtenha(regiao, das_informacoes_do_cep)
-    local = das_informacoes_do_cep.fetch("results")[0].fetch("address_components")[regiao].fetch("long_name")
+  def self.obtenha(regiao, nas_informacoes_do_cep)
+    local = nas_informacoes_do_cep.fetch("results")[0].fetch("address_components")[regiao].fetch("long_name")
   end
 
   def self.busque_por(numero_do_cep)
