@@ -7,15 +7,15 @@ Então(/^vejo que o CEP pertence ao país "([^"]*)"$/) do |pais|
   expect(@informacoes_do_cep.fetch(:pais)).to eq(pais)
 end
 
-Então(/^vejo que o CEP pertence ao estado "([^"]*)"$/) do |arg1|
-    pending # Write code here that turns the phrase above into concrete actions
+Então(/^vejo que o CEP pertence ao estado "([^"]*)"$/) do |estado|
+  expect(@informacoes_do_cep.fetch(:estado)).to eq(estado)
 end
 
-Então(/^vejo que o CEP pertence a cidade "([^"]*)"$/) do |arg1|
-    pending # Write code here that turns the phrase above into concrete actions
+Então(/^vejo que o CEP pertence a cidade "([^"]*)"$/) do |cidade|
+  expect(@informacoes_do_cep.fetch(:cidade)).to eq(cidade)
 end
 
-Então(/^vejo que o CEP pertence ao bairro "([^"]*)"$/) do |arg1|
-    pending # Write code here that turns the phrase above into concrete actions
+Então(/^vejo que o CEP pertence ao bairro "([^"]*)"$/) do |bairro|
+  expect(@informacoes_do_cep.fetch(:bairro)).to eq(bairro)
 end
 
