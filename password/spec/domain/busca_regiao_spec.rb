@@ -3,16 +3,12 @@ require "vcr"
 require_relative "../vcr_helper"
 
 describe BuscaRegiao do
-  #Na verdade é preciso dizer o que de fato essa classe faz.
-  #Ela processa cep - dado um número válido
-  #Processa cep - dado um número contendo hífen
-  #Processa cep - dado um número contendo pontos
-  #Processa um dado cep para busca
+  #Talvez implementar o comportamento para lidar com CEP com hífen
 
   context "com um número de CEP válido" do 
     around(:each) do |example|
       VCR.use_cassette("obtem_info_do_cep", &example)
-  end
+    end
 
     it "deve obter o País" do
       regiao = BuscaRegiao.do_cep("09110170")
