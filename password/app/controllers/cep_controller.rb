@@ -1,5 +1,6 @@
 class CepController < ApplicationController
   def show 
-    render :json => {pais: "Brasil", estado: "São Paulo", cidade: "Santo André", bairro: "Vila América"}
+    informacoes_do_cep = BuscaRegiao.do_cep(params[:cep])
+    render :json => informacoes_do_cep 
   end
 end
