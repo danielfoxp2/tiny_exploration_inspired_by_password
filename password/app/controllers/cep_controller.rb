@@ -1,3 +1,5 @@
-class CepController < ActionController::Base
+class CepController < ApplicationController
 
+  def show 
+  end
 end
